@@ -1,0 +1,4 @@
+Pertanyaan: Apa warna langit?
+Jawaban: Langit biasanya berwarna biru, terutama di siang hari.
+Pertanyaan: Beri saya rekomendasi buku.
+Jawaban: Saya merekomendasikan "Sapiens: A Brief History of Humankind" oleh Yuval Noah Harari.

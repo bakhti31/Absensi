@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Absencence</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">TimeStamp</th>
+                <!-- <th>RFID Data</th> -->
+                <th scope="col">FullName</th>
+                <th scope="col">Photo</th>
+                <!-- <th>Timestamp</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in absensi_data %}
+                <tr>
+                    <th scope="row">{{ row[0] }}</th>
+                    <td>{{ row[1] }}</td>
+                    <td><img src="{{ url_for('static', filename=row[2]) }}" alt="{{ row[2] }}" height="120px"></td>
+                    <!-- <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td> -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- <a href="{{url_for('index')}}">index</a> -->
+    <script>
+        setInterval(()=>{
+            fetch('/api/update')
+            .then(response => response.json())
+            .then(data => {
+                if(data.update)location.reload();
+                console.log(data.update);
+            })
+            .catch(error => console.error('Error fetching card data:', error));
+        },1000)
+    </script>
+{% endblock %}

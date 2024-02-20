@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <button class="btn btn-primary" onclick="findCard">Refresh Card</button>
+    <!-- <a href="{{url_for('regist')}}">Refresh Card</a> -->
+    <form class="form" action="{{url_for('regist')}}" method="post" enctype="multipart/form-data">
+        
+        <label for="card">Card Number</label>
+        <input class="form-control" type="text" disabled id="card" name="card" value="{{cards}}">
+        <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" class="form-control" id="fullname" name="name" aria-describedby="nameHelp" placeholder="Enter Fullname">
+            <small id="nameHelp" class="form-text text-muted">We'll Keep you name into database.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Photo</label>
+            <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+        <button type="submit">Send</button>
+    </form>
+    <script>
+    // while (true){
+        setInterval(()=>{
+            fetch('/api/card_data')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('card').value = data.card_number;
+            })
+            .catch(error => console.error('Error fetching card data:', error));
+        },1000)
+    // }
+    </script>
+{% endblock %}

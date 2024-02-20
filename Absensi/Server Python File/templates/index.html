@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3> {% block title %} {% endblock %} </h3>
+    <div class="p-5 mb-8 bg-body-tertiary rounded-5">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Dashboard Absensi</h1>
+          <p class="col-md-8 fs-4">Terima Kasih Telah menggunakan jasa kami</p>
+          <button class="btn btn-primary btn-lg" type="button"><a class="text-white" href="{{url_for('dashboard')}}">Lihat Absen</a></button>
+        </div>
+    </div>
+    <!-- <ul>
+        <li>
+            <a href="/dashboard">List Absensi</a>
+        </li>
+        <li>
+            <a href="/register">Registrasi Kartu</a>
+        </li>
+    </ul> -->
+{% endblock %}
